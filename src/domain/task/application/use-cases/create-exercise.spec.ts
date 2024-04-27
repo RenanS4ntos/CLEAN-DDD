@@ -1,20 +1,24 @@
-import { Exercise } from '../../enterprise/entities/exercise'
-import { ExerciseRepository } from '../repositories/exercise-repository'
+import { InMemoryExercisesRepository } from 'test/repositories/in-memory-exercises-repository'
 import { CreateExerciseUseCase } from './create-exercise'
 
-const fakeExerciseRepository: ExerciseRepository = {
-  create: async (exercise: Exercise) => {},
-}
+let inMemoryExercisesRepository: InMemoryExercisesRepository
+let sut: CreateExerciseUseCase // sut => System under test
 
-test('create an exercise', async () => {
-  const createExercise = new CreateExerciseUseCase(fakeExerciseRepository)
-
-  const { exercise } = await createExercise.execute({
-    authorId: '1',
-    title: 'Trabalho sobre DDD e Clean Architecture',
-    content: 'Faça uma pesquisa sobre DDD e Clean Architecture',
-    grade: '0.0',
+describe('Create Exercise', () => {
+  beforeEach(() => {
+    inMemoryExercisesRepository = new InMemoryExercisesRepository()
+    sut = new CreateExerciseUseCase(inMemoryExercisesRepository)
   })
 
-  expect(exercise.id).toBeTruthy()
+  it('should be able to create an exercise', async () => {
+    const { exercise } = await sut.execute({
+      authorId: '1',
+      title: 'Trabalho sobre DDD e Clean Architecture',
+      content: 'Faça uma pesquisa sobre DDD e Clean Architecture',
+      grade: '0.0',
+    })
+
+    expect(exercise.id).toBeTruthy()
+    expect(inMemoryExercisesRepository.items[0].id).toEqual(exercise.id)
+  })
 })
