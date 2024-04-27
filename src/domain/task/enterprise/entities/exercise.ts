@@ -8,7 +8,7 @@ interface ExerciseProps {
   authorId: UniqueEntityID
   title: string
   content: string
-  grade: string
+  grade?: string
   slug: Slug
   createdAt: Date
   updatedAt?: Date
@@ -39,7 +39,7 @@ export class Exercise extends Entity<ExerciseProps> {
   }
 
   get grade() {
-    return this.props.grade
+    return this.props.grade ?? '0.0'
   }
 
   set grade(grade: string) {
@@ -64,13 +64,14 @@ export class Exercise extends Entity<ExerciseProps> {
   }
 
   static create(
-    props: Optional<ExerciseProps, 'createdAt' | 'slug'>,
+    props: Optional<ExerciseProps, 'createdAt' | 'slug' | 'grade'>,
     id?: UniqueEntityID,
   ) {
     const exercise = new Exercise(
       {
         ...props,
         slug: props.slug ?? Slug.createFromText(props.title),
+        grade: '0.0',
         createdAt: new Date(),
       },
       id,
