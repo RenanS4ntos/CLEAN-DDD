@@ -5,6 +5,11 @@
 Design dirigido à domínio
 
 ## Domínio
+O domínio (domain) refere-se a um conjunto de conceitos, regras, processos e comportamentos que são fundamentais para um determinado negócio ou aplicação. É a área de conhecimento que descreve e organiza todo o conhecimento e entendimento necessário para desenvolver um software que atenda às necessidades do negócio ou aplicação.
+
+O domínio é a base do DDD e é a partir dele que os modelos de negócio são construídos. Ele é composto por um conjunto de entidades, agregados, serviços e eventos que representam conceitos fundamentais do negócio. O conhecimento do domínio é essencial para que os desenvolvedores possam entender as necessidades do negócio e construir um software que atenda a essas necessidades de forma eficiente e eficaz.
+
+Além disso, o DDD enfatiza a importância da comunicação clara e constante entre os desenvolvedores e os especialistas do domínio (conhecidos como especialistas do domínio ou domain experts), para que o conhecimento do domínio possa ser compartilhado e incorporado ao processo de desenvolvimento de software.
 
 - Domain Experts (Experts de domínio) -> Pessoas que entendem a problemática do software, lidam com isso diariamente 
   - Conversa
@@ -35,5 +40,5 @@ Design dirigido à domínio
   *** EU e PROFESSOR -> Entidades ***
   *** RESPONDER ATIVIDADE -> Caso de uso ***
 
-
-
+# Clean Architecture
+- Desacoplamento
