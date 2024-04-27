@@ -47,6 +47,10 @@ export class Exercise extends Entity<ExerciseProps> {
     this.touch()
   }
 
+  get slug() {
+    return this.props.slug
+  }
+
   get createdAt() {
     return this.props.createdAt
   }
