@@ -41,4 +41,12 @@ Além disso, o DDD enfatiza a importância da comunicação clara e constante en
   *** RESPONDER ATIVIDADE -> Caso de uso ***
 
 # Clean Architecture
+<img 
+  src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" 
+  alt="the-clean-architecture-diagram"
+/>
+
 - Desacoplamento
+- SOLID 
+  - Inversão de dependência -> permite que parte do código não dependa diretamente da implementação de uma outra camada do código, mas sim de uma abstração (de um contrato).
+  - Ex: Camada de Casos de uso não deve depender da implementação da Camada de Infraestrutura.
