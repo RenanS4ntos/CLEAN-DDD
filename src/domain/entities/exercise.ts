@@ -1,21 +1,20 @@
-import { Slug } from "./value-objects/slug"
-import { Entity } from "../../core/entities/entity"
-import { UniqueEntityID } from "../../core/entities/unique-entity-id"
-import { Optional } from "../../core/types/optional"
-import dayjs from "dayjs"
+import { Slug } from './value-objects/slug'
+import { Entity } from '@/core/entities/entity'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { Optional } from '@/core/types/optional'
+import dayjs from 'dayjs'
 
 interface ExerciseProps {
   authorId: UniqueEntityID
   title: string
   content: string
   grade: string
-  slug: Slug 
+  slug: Slug
   createdAt: Date
   updatedAt?: Date
 }
 
 export class Exercise extends Entity<ExerciseProps> {
-
   get authorId() {
     return this.props.authorId
   }
@@ -65,14 +64,17 @@ export class Exercise extends Entity<ExerciseProps> {
   }
 
   static create(
-    props: Optional<ExerciseProps, 'createdAt' | 'slug'>, 
-    id?: UniqueEntityID
+    props: Optional<ExerciseProps, 'createdAt' | 'slug'>,
+    id?: UniqueEntityID,
   ) {
-    const exercise = new Exercise({
-      ...props,
-      slug: props.slug ?? Slug.createFromText(props.title),
-      createdAt: new Date(),
-    }, id)
+    const exercise = new Exercise(
+      {
+        ...props,
+        slug: props.slug ?? Slug.createFromText(props.title),
+        createdAt: new Date(),
+      },
+      id,
+    )
 
     return exercise
   }
