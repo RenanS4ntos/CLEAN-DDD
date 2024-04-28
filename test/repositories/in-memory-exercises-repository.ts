@@ -8,6 +8,12 @@ export class InMemoryExercisesRepository implements ExerciseRepository {
     this.items.push(exercise)
   }
 
+  async save(exercise: Exercise) {
+    const itemIndex = this.items.findIndex((item) => item.id === exercise.id)
+
+    this.items[itemIndex] = exercise
+  }
+
   async delete(exercise: Exercise) {
     const itemIndex = this.items.findIndex((item) => item.id === exercise.id)
 

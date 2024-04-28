@@ -6,6 +6,7 @@ export interface AnswerProps {
   authorId: UniqueEntityID
   exerciseId: UniqueEntityID
   content: string
+  grade?: string
   createdAt: Date
   updatedAt?: Date
 }
@@ -28,6 +29,15 @@ export class Answer extends Entity<AnswerProps> {
     this.touch()
   }
 
+  get grade() {
+    return this.props.grade ?? '0.0'
+  }
+
+  set grade(grade: string) {
+    this.props.grade = grade
+    this.touch()
+  }
+
   get createdAt() {
     return this.props.createdAt
   }
@@ -41,13 +51,14 @@ export class Answer extends Entity<AnswerProps> {
   }
 
   static create(
-    props: Optional<AnswerProps, 'createdAt'>,
+    props: Optional<AnswerProps, 'createdAt' | 'grade'>,
     id?: UniqueEntityID,
   ) {
     const answer = new Answer(
       {
         ...props,
         createdAt: new Date(),
+        grade: props.grade || '0.0',
       },
       id,
     )
