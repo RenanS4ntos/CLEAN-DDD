@@ -1,6 +1,6 @@
 ***  Design de Software != Arquitetura de Software ***
 
-# DDD (Domain-driven Design)
+# DDD ( Domain-driven Design )
 
 Design dirigido à domínio
 
@@ -40,13 +40,41 @@ Além disso, o DDD enfatiza a importância da comunicação clara e constante en
   *** EU e PROFESSOR -> Entidades ***
   *** RESPONDER ATIVIDADE -> Caso de uso ***
 
+## Comparações
+### MVC ( Model View Controller )
+- Separa aplicação em 3 pilares principais
+- Focado em separar as principais responsabilidades da aplicação
+
+### SOA ( Service Oriented Architecture )
+- componentes são disponibilizados em forma de serviços
+- Focado em deixar os componentes o mais independentes possíveis, podendo ser reutilizados e combinados
+
+### Microservices Architecture ( Arquitetura de Micro serviços )
+- estrutura a aplicação como um conjunto de pequenos serviços implantados de forma independente
+- cada contexto vira um microservices, encapsulando um subdomínio específico
+
+### Layered Architecture ( Arquitetura em Camadas )
+- organiza a aplicação em camadas distintas, onde cada camada tem uma responsabilidade específica
+- mais focada na separação de responsabilidade técnicas
+
+### Event-Driven Architecture - EDA
+- fluxos de controle são determinados por eventos e os componentes interagem entre si também por eventos
+- consiste em eventos, produtores do evento, consumidores do evento e barramento de eventos (intermediário - transposta eventos dos produtores aos consumidores)
+
+### Hexagonal Architecture - Arquitetura Hexagonal
+- conhecida Ports and Adapters
+- promove ideia da aplicação deve ser isolada de suas dependências externas
+- núcleo (entidades/domínio) bem protegidos
+
 # Clean Architecture
 <img 
   src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" 
   alt="the-clean-architecture-diagram"
 />
 
+- organização do código
 - Desacoplamento
 - SOLID 
   - Inversão de dependência -> permite que parte do código não dependa diretamente da implementação de uma outra camada do código, mas sim de uma abstração (de um contrato).
   - Ex: Camada de Casos de uso não deve depender da implementação da Camada de Infraestrutura.
+

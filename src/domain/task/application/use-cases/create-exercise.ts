@@ -20,13 +20,11 @@ export class CreateExerciseUseCase {
     authorId,
     title,
     content,
-    grade,
   }: CreateExerciseUseCaseRequest): Promise<CreateExerciseUseCaseResponse> {
     const exercise = Exercise.create({
       authorId: new UniqueEntityID(authorId),
       title,
       content,
-      grade,
     })
 
     await this.exerciseRepository.create(exercise)
