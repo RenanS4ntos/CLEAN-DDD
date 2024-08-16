@@ -1,5 +1,3 @@
-***  Design de Software != Arquitetura de Software ***
-
 # DDD ( Domain-driven Design )
 
 Design dirigido à domínio
@@ -37,8 +35,8 @@ Além disso, o DDD enfatiza a importância da comunicação clara e constante en
   - Descrição de uma sequência de ações que um usuário ou sistema realiza para atingir um objetivo
 
   Ex: _EU_ preciso _RESPONDER_ a atividade do _PROFESSOR_.
-  *** EU e PROFESSOR -> Entidades ***
-  *** RESPONDER ATIVIDADE -> Caso de uso ***
+  ** EU e PROFESSOR -> Entidades **
+  ** RESPONDER ATIVIDADE -> Caso de uso **
 
 ## Comparações
 ### MVC ( Model View Controller )
@@ -77,4 +75,3 @@ Além disso, o DDD enfatiza a importância da comunicação clara e constante en
 - SOLID 
   - Inversão de dependência -> permite que parte do código não dependa diretamente da implementação de uma outra camada do código, mas sim de uma abstração (de um contrato).
   - Ex: Camada de Casos de uso não deve depender da implementação da Camada de Infraestrutura.
-
